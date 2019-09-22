@@ -8,10 +8,10 @@ namespace EgnValidator.Tests
     {
         [Theory]
         [InlineData("5010100000")]
-        [InlineData("5010100050")]
-        [InlineData("8402290030")]
-        [InlineData("9011300030")]
-        [InlineData("9512310040")]
+        [InlineData("5010010000")]
+        [InlineData("8402290000")]
+        [InlineData("9011300000")]
+        [InlineData("9512310000")]
         public void Correct_BirthDate_Should_Return_True(string inputEgn)
         {
             var egnValidator = new Validator();
