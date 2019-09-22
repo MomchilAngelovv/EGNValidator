@@ -20,9 +20,15 @@ namespace EgnValidator.App
                     continue;
                 }
 
-                var isEgnValid = validator.Validate(inputEgn);
+                var isEgnValid = validator.Validate(inputEgn, egnValidationLog);
                 egnValidationLog[inputEgn] = isEgnValid;
+
                 inputEgn = Console.ReadLine();
+            }
+
+            foreach (var egnPair in egnValidationLog)
+            {
+                Console.WriteLine($"{egnPair.Key} -> {egnPair.Value}");
             }
         }
     }

@@ -6,6 +6,6 @@ namespace EgnValidator.App
 {
     public interface IValidator
     {
-        bool Validate(string egn);
+        bool Validate(string egn, Dictionary<string, bool> egnValidationLog);
     }
 }

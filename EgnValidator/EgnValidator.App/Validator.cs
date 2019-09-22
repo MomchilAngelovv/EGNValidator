@@ -7,7 +7,7 @@ namespace EgnValidator.App
 {
     public class Validator : IValidator
     {
-        public bool Validate(string egnInput)
+        public bool Validate(string egnInput, Dictionary<string, bool> egnValidationLog)
         {
             if (string.IsNullOrWhiteSpace(egnInput))
             {
@@ -20,19 +20,14 @@ namespace EgnValidator.App
             }
 
             var birthDate = egnInput.Substring(0, 6);
+            var isBirthDateValid = DateTime.TryParseExact(birthDate, "yyMMdd", CultureInfo.InvariantCulture, DateTimeStyles.None, out var parsedDatetime);
 
-            try
-            {
-                var isBirthDateValid = DateTime.ParseExact(birthDate, "yyMMdd", CultureInfo.InvariantCulture);
-
-            }
-            catch (FormatException)
+            if (isBirthDateValid == false)
             {
                 return false;
             }
 
-            ;
-            throw new NotImplementedException();
+            return true;
         }
     }
 }
