@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29306.81
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EgnValidator.App", "EgnValidator.App\EgnValidator.App.csproj", "{0E0286D8-842C-4E1D-93A3-EA0459C67439}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EgnValidator.Tests", "EgnValidator.Tests\EgnValidator.Tests.csproj", "{215D0497-7802-4A92-AE3D-A8F5F1D1510D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0E0286D8-842C-4E1D-93A3-EA0459C67439}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E0286D8-842C-4E1D-93A3-EA0459C67439}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E0286D8-842C-4E1D-93A3-EA0459C67439}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E0286D8-842C-4E1D-93A3-EA0459C67439}.Release|Any CPU.Build.0 = Release|Any CPU
+		{215D0497-7802-4A92-AE3D-A8F5F1D1510D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{215D0497-7802-4A92-AE3D-A8F5F1D1510D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{215D0497-7802-4A92-AE3D-A8F5F1D1510D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{215D0497-7802-4A92-AE3D-A8F5F1D1510D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C1D19F10-A486-4F29-B453-23B0A731B7FB}
+	EndGlobalSection
+EndGlobal
