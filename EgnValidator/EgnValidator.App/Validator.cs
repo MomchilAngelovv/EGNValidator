@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EgnValidator.App.Models;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Text;
@@ -7,7 +8,7 @@ namespace EgnValidator.App
 {
     public class Validator : IValidator
     {
-        public bool Validate(string egnInput, Dictionary<string, bool> egnValidationLog)
+        public bool Validate(string egnInput, IDictionary<string, bool> egnValidationLog, IList<Person> personLog)
         {
             if (string.IsNullOrWhiteSpace(egnInput))
             {

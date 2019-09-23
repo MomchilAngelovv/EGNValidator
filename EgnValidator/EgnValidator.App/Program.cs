@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using EgnValidator.App;
+using EgnValidator.App.Models;
 
 namespace EgnValidator.App
 {
@@ -9,6 +11,7 @@ namespace EgnValidator.App
         {
             var validator = new Validator();
             var validEgnLog = new Dictionary<string, bool>();
+            var personLog = new List<Person>();
 
             ShowInstructions();
 
@@ -22,7 +25,7 @@ namespace EgnValidator.App
                     continue;
                 }
 
-                var isEgnValid = validator.Validate(inputEgn, validEgnLog);
+                var isEgnValid = validator.Validate(inputEgn, validEgnLog, personLog);
                 validEgnLog[inputEgn] = isEgnValid;
 
                 if (isEgnValid)

@@ -17,7 +17,7 @@ namespace EgnValidator.Tests
             var egnValidator = new Validator();
 
             var expectedResult = true;
-            var actualResult = egnValidator.Validate(inputEgn, null);
+            var actualResult = egnValidator.Validate(inputEgn, null, null);
 
             Assert.Equal(expectedResult, actualResult);
         }
@@ -32,7 +32,7 @@ namespace EgnValidator.Tests
             var egnValidator = new Validator();
 
             var expectedResult = false;
-            var actualResult = egnValidator.Validate(inputEgn, null);
+            var actualResult = egnValidator.Validate(inputEgn, null, null);
 
             Assert.Equal(expectedResult, actualResult);
         }
@@ -47,7 +47,7 @@ namespace EgnValidator.Tests
             var egnValidator = new Validator();
 
             var expectedResult = false;
-            var actualResult = egnValidator.Validate(inputEgn, null);
+            var actualResult = egnValidator.Validate(inputEgn, null, null);
 
             Assert.Equal(expectedResult, actualResult);
         }
@@ -63,7 +63,7 @@ namespace EgnValidator.Tests
             var egnValidator = new Validator();
 
             var expectedResult = true;
-            var actualResult = egnValidator.Validate(inputEgn, null);
+            var actualResult = egnValidator.Validate(inputEgn, null, null);
 
             Assert.Equal(expectedResult, actualResult);
         }
@@ -77,7 +77,7 @@ namespace EgnValidator.Tests
             var egnValidator = new Validator();
 
             var expectedResult = false;
-            var actualResult = egnValidator.Validate(inputEgn, null);
+            var actualResult = egnValidator.Validate(inputEgn, null, null);
 
             Assert.Equal(expectedResult, actualResult);
         }
@@ -92,7 +92,7 @@ namespace EgnValidator.Tests
             var egnValidator = new Validator();
 
             var expectedResult = true;
-            var actualResult = egnValidator.Validate(inputEgn, null);
+            var actualResult = egnValidator.Validate(inputEgn, null, null);
 
             Assert.Equal(expectedResult, actualResult);
         }
@@ -106,7 +106,7 @@ namespace EgnValidator.Tests
             var egnValidator = new Validator();
 
             var expectedResult = false;
-            var actualResult = egnValidator.Validate(inputEgn, null);
+            var actualResult = egnValidator.Validate(inputEgn, null, null);
 
             Assert.Equal(expectedResult, actualResult);
         }

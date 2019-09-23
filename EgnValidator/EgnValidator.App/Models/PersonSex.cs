@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace EgnValidator.App.Person
+namespace EgnValidator.App.Models
 {
     public enum PersonSex
     {

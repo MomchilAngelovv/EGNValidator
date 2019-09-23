@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace EgnValidator.App.Person
+namespace EgnValidator.App.Models
 {
     public class Person
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
 
         public DateTime BirthDate { get; set; }
 
