@@ -15,20 +15,25 @@ namespace EgnValidator.App
 
             ShowInstructions();
 
-            var inputEgn = Console.ReadLine();
-
-            while (inputEgn != "stop")
+            while (true)
             {
-                if (validEgnLog.ContainsKey(inputEgn))
+                var inputEgn = Console.ReadLine();
+
+                if (inputEgn == "stop")
                 {
-                    Console.WriteLine(validEgnLog[inputEgn]);
-                    continue;
+                    break;
                 }
 
                 if (inputEgn == "show")
                 {
                     ShowRegisteredPeople(peopleLog);
-                    inputEgn = Console.ReadLine();
+                    continue;
+                }
+
+                if (validEgnLog.ContainsKey(inputEgn))
+                {
+                    Console.WriteLine($"Already registered person with this EGN.");
+                    continue;
                 }
 
                 var isEgnValid = validator.Validate(inputEgn, validEgnLog, peopleLog);
@@ -37,9 +42,10 @@ namespace EgnValidator.App
                 if (isEgnValid)
                 {
                     Console.WriteLine("Egn registered in valid EGN log.");
+                    continue;
                 }
 
-                inputEgn = Console.ReadLine();
+                Console.WriteLine("Invalid Egn.");
             }
 
             foreach (var egnPair in validEgnLog)
