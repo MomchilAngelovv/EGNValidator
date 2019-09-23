@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace EgnValidator.App.Models
+﻿namespace EgnValidator.App.Models
 {
     public enum PersonSex
     {

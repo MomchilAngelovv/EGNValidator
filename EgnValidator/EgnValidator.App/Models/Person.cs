@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace EgnValidator.App.Models
+﻿namespace EgnValidator.App.Models
 {
+    using System;
+
     public class Person
     {
         public string Id { get; set; }

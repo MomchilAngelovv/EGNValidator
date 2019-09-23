@@ -1,14 +1,19 @@
-﻿using EgnValidator.App.Models;
-using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Text;
-
-namespace EgnValidator.App
+﻿namespace EgnValidator.App
 {
+    using System;
+    using System.Globalization;
+    using System.Collections.Generic;
+
+    using EgnValidator.App.Models;
+
     public class Validator : IValidator
     {
-        private readonly int[] digitMultiplierCoeficients = new int[] { 2, 4, 8, 5, 10, 9, 7, 3, 6 };
+        private readonly int[] digitMultiplierCoeficients;
+
+        public Validator()
+        {
+            this.digitMultiplierCoeficients = new int[] { 2, 4, 8, 5, 10, 9, 7, 3, 6 };
+        }
 
         public bool Validate(string egnInput, IDictionary<string, bool> egnValidationLog, IList<Person> peopleLog)
         {

@@ -1,11 +1,12 @@
-using System;
-using Xunit;
-using EgnValidator.App;
-using EgnValidator.App.Models;
-using System.Collections.Generic;
-
 namespace EgnValidator.Tests
 {
+    using System.Collections.Generic;
+
+    using Xunit;
+
+    using EgnValidator.App;
+    using EgnValidator.App.Models;
+
     public class EgnValidatorTests
     {
         private readonly IList<Person> peopleLog = new List<Person>();
