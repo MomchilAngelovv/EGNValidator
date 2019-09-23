@@ -8,7 +8,7 @@ namespace EgnValidator.App
 {
     public class Validator : IValidator
     {
-        public bool Validate(string egnInput, IDictionary<string, bool> egnValidationLog, IList<Person> personLog)
+        public bool Validate(string egnInput, IDictionary<string, bool> egnValidationLog, IList<Person> peopleLog)
         {
             if (string.IsNullOrWhiteSpace(egnInput))
             {
@@ -42,12 +42,21 @@ namespace EgnValidator.App
 
             var birthDate = $"{yearAsString}{monthAsString}{dayAsString}";
 
-            var isBirthDateValid = DateTime.TryParseExact(birthDate, "yyyyMMdd", CultureInfo.InvariantCulture, DateTimeStyles.None, out var parsedDatetime);
+            var isBirthDateValid = DateTime.TryParseExact(birthDate, "yyyyMMdd", CultureInfo.InvariantCulture, DateTimeStyles.None, out var parsedBirthdate);
 
             if (isBirthDateValid == false)
             {
                 return false;
             }
+
+            var person = new Person
+            {
+                Id = Guid.NewGuid().ToString(),
+                Birthdate = parsedBirthdate,
+                Sex = PersonSex.Male
+            };
+
+            peopleLog.Add(person);
 
             return true;
         }

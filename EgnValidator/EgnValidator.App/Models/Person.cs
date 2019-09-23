@@ -8,7 +8,7 @@ namespace EgnValidator.App.Models
     {
         public string Id { get; set; }
 
-        public DateTime BirthDate { get; set; }
+        public DateTime Birthdate { get; set; }
 
         public PersonSex Sex { get; set; }
     }

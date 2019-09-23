@@ -11,7 +11,7 @@ namespace EgnValidator.App
         {
             var validator = new Validator();
             var validEgnLog = new Dictionary<string, bool>();
-            var personLog = new List<Person>();
+            var peopleLog = new List<Person>();
 
             ShowInstructions();
 
@@ -25,7 +25,13 @@ namespace EgnValidator.App
                     continue;
                 }
 
-                var isEgnValid = validator.Validate(inputEgn, validEgnLog, personLog);
+                if (inputEgn == "show")
+                {
+                    ShowRegisteredPeople(peopleLog);
+                    inputEgn = Console.ReadLine();
+                }
+
+                var isEgnValid = validator.Validate(inputEgn, validEgnLog, peopleLog);
                 validEgnLog[inputEgn] = isEgnValid;
 
                 if (isEgnValid)
@@ -40,6 +46,16 @@ namespace EgnValidator.App
             {
                 Console.WriteLine($"{egnPair.Key} -> {egnPair.Value}");
             }
+        }
+
+        private static void ShowRegisteredPeople(IList<Person> peopleLog)
+        {
+            Console.WriteLine($"List of registered people with valid Egn:");
+            foreach (var person in peopleLog)
+            {
+                Console.WriteLine($"Id: {person.Id}; Birthdate(yyyy-MM-dd): {person.Birthdate.ToString("yyyy-MM-dd")}; Sex: {person.Sex}");
+            }
+            Console.WriteLine($"{new string('=', 50)}");
         }
 
         private static void ShowInstructions()
