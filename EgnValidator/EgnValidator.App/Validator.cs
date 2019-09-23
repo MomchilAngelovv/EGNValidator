@@ -19,8 +19,29 @@ namespace EgnValidator.App
                 return false;
             }
 
-            var birthDate = egnInput.Substring(0, 6);
-            var isBirthDateValid = DateTime.TryParseExact(birthDate, "yyMMdd", CultureInfo.InvariantCulture, DateTimeStyles.None, out var parsedDatetime);
+            var year = 1900 + int.Parse(egnInput.Substring(0, 2));
+            var month = int.Parse(egnInput.Substring(2, 2));
+            var day = int.Parse(egnInput.Substring(4, 2));
+
+            if (day >= 41 && day <= 71)
+            {
+                day -= 40;
+                year += 100;
+            }
+
+            if (month >= 21 && month <= 32)
+            {
+                month -= 20;
+                year -= 100;
+            }
+
+            var yearAsString = year.ToString("D4");
+            var monthAsString = month.ToString("D2");
+            var dayAsString = day.ToString("D2");
+
+            var birthDate = $"{yearAsString}{monthAsString}{dayAsString}";
+
+            var isBirthDateValid = DateTime.TryParseExact(birthDate, "yyyyMMdd", CultureInfo.InvariantCulture, DateTimeStyles.None, out var parsedDatetime);
 
             if (isBirthDateValid == false)
             {
