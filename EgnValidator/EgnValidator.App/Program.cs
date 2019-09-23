@@ -57,7 +57,7 @@
             ShowInputEgnLog(inputEgnLog);
         }
 
-        private static void ShowInputEgnLog(Dictionary<string, bool> inputEgnLog)
+        private static void ShowInputEgnLog(IDictionary<string, bool> inputEgnLog)
         {
             Console.WriteLine($"{new string('=', 50)}");
             foreach (var pair in inputEgnLog)
