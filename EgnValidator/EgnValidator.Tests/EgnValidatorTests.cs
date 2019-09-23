@@ -11,11 +11,11 @@ namespace EgnValidator.Tests
         private readonly IList<Person> peopleLog = new List<Person>();
 
         [Theory]
-        [InlineData("5010100000")]
-        [InlineData("5010010000")]
+        [InlineData("5010100006")]
+        [InlineData("5010010005")]
         [InlineData("8402290000")]
-        [InlineData("9011300000")]
-        [InlineData("9512310000")]
+        [InlineData("9011300006")]
+        [InlineData("9512310007")]
         public void Correct_BirthDate_Should_Return_True(string inputEgn)
         {
             var egnValidator = new Validator();
@@ -57,11 +57,11 @@ namespace EgnValidator.Tests
         }
 
         [Theory]
-        [InlineData("8825050000")]
+        [InlineData("8825050002")]
         [InlineData("8822290000")]
-        [InlineData("8831300000")]
-        [InlineData("8932310000")]
-        [InlineData("8901310000")]
+        [InlineData("8831300008")]
+        [InlineData("8932310004")]
+        [InlineData("8901310008")]
         public void Before_1900_With_MonthPlus20_Should_Return_True(string inputEgn)
         {
             var egnValidator = new Validator();
@@ -87,10 +87,10 @@ namespace EgnValidator.Tests
         }
 
         [Theory]
-        [InlineData("8802690000")]
-        [InlineData("5631510000")]
-        [InlineData("8831700000")]
-        [InlineData("6010500000")]
+        [InlineData("8802690001")]
+        [InlineData("5631510001")]
+        [InlineData("8831700004")]
+        [InlineData("6010500004")]
         public void After_1900_With_DayPlus40_Should_Return_True(string inputEgn)
         {
             var egnValidator = new Validator();
@@ -117,6 +117,9 @@ namespace EgnValidator.Tests
 
         [Theory]
         [InlineData("6101057509")]
+        [InlineData("9001014406")]
+        [InlineData("9001014427")]
+        [InlineData("9001014643")]
         public void Correct_Checksum_Should_Return_True(string inputEgn)
         {
             var egnValidator = new Validator();
@@ -128,8 +131,10 @@ namespace EgnValidator.Tests
         }
 
         [Theory]
+        [InlineData("6101057507")]
         [InlineData("6101057508")]
-        public void Incorrect_Checksum_Should_Return_True(string inputEgn)
+        [InlineData("6101057500")]
+        public void Incorrect_Checksum_Should_Return_False(string inputEgn)
         {
             var egnValidator = new Validator();
 
