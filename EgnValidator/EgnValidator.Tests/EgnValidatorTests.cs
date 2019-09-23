@@ -1,11 +1,15 @@
 using System;
 using Xunit;
 using EgnValidator.App;
+using EgnValidator.App.Models;
+using System.Collections.Generic;
 
 namespace EgnValidator.Tests
 {
     public class EgnValidatorTests
     {
+        private readonly IList<Person> peopleLog = new List<Person>();
+
         [Theory]
         [InlineData("5010100000")]
         [InlineData("5010010000")]
@@ -17,7 +21,7 @@ namespace EgnValidator.Tests
             var egnValidator = new Validator();
 
             var expectedResult = true;
-            var actualResult = egnValidator.Validate(inputEgn, null, null);
+            var actualResult = egnValidator.Validate(inputEgn, null, peopleLog);
 
             Assert.Equal(expectedResult, actualResult);
         }
@@ -32,7 +36,7 @@ namespace EgnValidator.Tests
             var egnValidator = new Validator();
 
             var expectedResult = false;
-            var actualResult = egnValidator.Validate(inputEgn, null, null);
+            var actualResult = egnValidator.Validate(inputEgn, null, peopleLog);
 
             Assert.Equal(expectedResult, actualResult);
         }
@@ -47,7 +51,7 @@ namespace EgnValidator.Tests
             var egnValidator = new Validator();
 
             var expectedResult = false;
-            var actualResult = egnValidator.Validate(inputEgn, null, null);
+            var actualResult = egnValidator.Validate(inputEgn, null, peopleLog);
 
             Assert.Equal(expectedResult, actualResult);
         }
@@ -63,7 +67,7 @@ namespace EgnValidator.Tests
             var egnValidator = new Validator();
 
             var expectedResult = true;
-            var actualResult = egnValidator.Validate(inputEgn, null, null);
+            var actualResult = egnValidator.Validate(inputEgn, null, peopleLog);
 
             Assert.Equal(expectedResult, actualResult);
         }
@@ -77,7 +81,7 @@ namespace EgnValidator.Tests
             var egnValidator = new Validator();
 
             var expectedResult = false;
-            var actualResult = egnValidator.Validate(inputEgn, null, null);
+            var actualResult = egnValidator.Validate(inputEgn, null, peopleLog);
 
             Assert.Equal(expectedResult, actualResult);
         }
@@ -92,7 +96,7 @@ namespace EgnValidator.Tests
             var egnValidator = new Validator();
 
             var expectedResult = true;
-            var actualResult = egnValidator.Validate(inputEgn, null, null);
+            var actualResult = egnValidator.Validate(inputEgn, null, peopleLog);
 
             Assert.Equal(expectedResult, actualResult);
         }
@@ -106,7 +110,31 @@ namespace EgnValidator.Tests
             var egnValidator = new Validator();
 
             var expectedResult = false;
-            var actualResult = egnValidator.Validate(inputEgn, null, null);
+            var actualResult = egnValidator.Validate(inputEgn, null, peopleLog);
+
+            Assert.Equal(expectedResult, actualResult);
+        }
+
+        [Theory]
+        [InlineData("6101057509")]
+        public void Correct_Checksum_Should_Return_True(string inputEgn)
+        {
+            var egnValidator = new Validator();
+
+            var expectedResult = true;
+            var actualResult = egnValidator.Validate(inputEgn, null, peopleLog);
+
+            Assert.Equal(expectedResult, actualResult);
+        }
+
+        [Theory]
+        [InlineData("6101057508")]
+        public void Incorrect_Checksum_Should_Return_True(string inputEgn)
+        {
+            var egnValidator = new Validator();
+
+            var expectedResult = false;
+            var actualResult = egnValidator.Validate(inputEgn, null, peopleLog);
 
             Assert.Equal(expectedResult, actualResult);
         }

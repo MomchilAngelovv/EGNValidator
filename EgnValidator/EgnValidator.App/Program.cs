@@ -10,7 +10,7 @@ namespace EgnValidator.App
         static void Main()
         {
             var validator = new Validator();
-            var validEgnLog = new Dictionary<string, bool>();
+            var inputEgnLog = new Dictionary<string, bool>();
             var peopleLog = new List<Person>();
 
             ShowInstructions();
@@ -30,14 +30,20 @@ namespace EgnValidator.App
                     continue;
                 }
 
-                if (validEgnLog.ContainsKey(inputEgn))
+                if (inputEgn == "show log")
+                {
+                    ShowInputEgnLog(inputEgnLog);
+                    continue;
+                }
+
+                if (inputEgnLog.ContainsKey(inputEgn))
                 {
                     Console.WriteLine($"Already registered person with this EGN.");
                     continue;
                 }
 
-                var isEgnValid = validator.Validate(inputEgn, validEgnLog, peopleLog);
-                validEgnLog[inputEgn] = isEgnValid;
+                var isEgnValid = validator.Validate(inputEgn, inputEgnLog, peopleLog);
+                inputEgnLog[inputEgn] = isEgnValid;
 
                 if (isEgnValid)
                 {
@@ -48,9 +54,15 @@ namespace EgnValidator.App
                 Console.WriteLine("Invalid Egn.");
             }
 
-            foreach (var egnPair in validEgnLog)
+            ShowInputEgnLog(inputEgnLog);
+        }
+
+        private static void ShowInputEgnLog(Dictionary<string, bool> inputEgnLog)
+        {
+            foreach (var pair in inputEgnLog)
             {
-                Console.WriteLine($"{egnPair.Key} -> {egnPair.Value}");
+                var egnState = pair.Value == true ? "Valid" : "Invalid";
+                Console.WriteLine($"Egn: {pair.Key}: {egnState}");
             }
         }
 
